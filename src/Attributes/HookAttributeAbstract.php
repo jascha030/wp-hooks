@@ -26,4 +26,11 @@ abstract class HookAttributeAbstract
     {
         return $this->prio;
     }
+
+    protected function assertClosure(callable|\Closure $callable): \Closure
+    {
+        return $callable instanceof \Closure
+            ? $callable
+            : \Closure::fromCallable($callable);
+    }
 }
