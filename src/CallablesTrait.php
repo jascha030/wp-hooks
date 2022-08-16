@@ -4,8 +4,19 @@ declare(strict_types=1);
 
 namespace Jascha030\Hooks;
 
+/**
+ * @internal
+ */
 trait CallablesTrait
 {
+    use AssertClosureTrait;
+
+    /**
+     * Wraps implementation of this Trait in static method,.
+     *
+     * Basically denoting that the implementing class,
+     * shouldn't be much more than just an implementation of this Trait.
+     */
     public static function add(
         string $tag,
         callable|\Closure $callable,
@@ -14,8 +25,6 @@ trait CallablesTrait
     ): void {
         (new static())->callback($tag, $callable, $prio, $acceptedArgs);
     }
-
-    abstract private function getMethod(): string;
 
     private function callback(string $tag, callable|\Closure $callable, int $prio = 10, int $acceptedArgs = 1): void
     {
@@ -33,12 +42,7 @@ trait CallablesTrait
         return $this->assertClosure($this->getMethod());
     }
 
-    private function assertClosure(callable|\Closure $callable): \Closure
-    {
-        return $callable instanceof \Closure
-            ? $callable
-            : \Closure::fromCallable($callable);
-    }
+    abstract private function getMethod(): string;
 
     private function getProxyCallable(): \Closure
     {
