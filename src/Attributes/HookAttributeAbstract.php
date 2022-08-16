@@ -17,13 +17,13 @@ abstract class HookAttributeAbstract
 
     abstract public function add(callable|\Closure $callable, int $acceptedArgs): void;
 
-    public function getTag(): string
-    {
-        return $this->tag;
-    }
-
     public function getPrio(): int
     {
         return $this->prio;
+    }
+
+    public function getTag(): string
+    {
+        return $this->tag;
     }
 }

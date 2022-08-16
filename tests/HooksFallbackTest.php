@@ -6,6 +6,12 @@ use Jascha030\Hooks\Action;
 use Jascha030\Hooks\Filter;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \Jascha030\Hooks\Attributes\Action
+ * @covers \Jascha030\Hooks\Attributes\Filter
+ *
+ * @internal
+ */
 final class HooksFallbackTest extends TestCase
 {
     public function testAddFallback(): void
