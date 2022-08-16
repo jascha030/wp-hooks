@@ -19,7 +19,8 @@
         </report>
     </coverage>
     <testsuite name="main">
-        <directory>tests</directory>
+        <file>tests/HooksFallbackTest.php</file>
+        <file>tests/HooksTest.php</file>
     </testsuite>
     <logging/>
 </phpunit>
