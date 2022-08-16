@@ -6,6 +6,8 @@ namespace Jascha030\Hooks;
 
 trait CallablesTrait
 {
+    use AssertClosureTrait;
+
     public static function add(
         string $tag,
         callable|\Closure $callable,
@@ -31,13 +33,6 @@ trait CallablesTrait
         }
 
         return $this->assertClosure($this->getMethod());
-    }
-
-    private function assertClosure(callable|\Closure $callable): \Closure
-    {
-        return $callable instanceof \Closure
-            ? $callable
-            : \Closure::fromCallable($callable);
     }
 
     private function getProxyCallable(): \Closure
