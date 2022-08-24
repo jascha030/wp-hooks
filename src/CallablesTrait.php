@@ -12,6 +12,13 @@ trait CallablesTrait
     use AssertClosureTrait;
 
     /**
+     * @noinspection PhpUnusedPrivateMethodInspection
+     *
+     * @return callable
+     */
+    abstract private function getMethod(): string;
+
+    /**
      * Wraps implementation of this Trait in static method,.
      *
      * Basically denoting that the implementing class,
@@ -41,8 +48,6 @@ trait CallablesTrait
 
         return $this->assertClosure($this->getMethod());
     }
-
-    abstract private function getMethod(): string;
 
     private function getProxyCallable(): \Closure
     {
