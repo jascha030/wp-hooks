@@ -19,8 +19,6 @@
         "Attributes"
     ],
     "homepage": "https://github.com/jascha030",
-    "config": {},
-    "bin": [],
     "autoload": {
         "psr-4": {
             "Jascha030\\Hooks\\": "src"
@@ -34,19 +32,23 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^8.0|^8.1"
+        "php": "~8.0||~8.1||~8.2"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-latest",
-        "friendsofphp/php-cs-fixer": "^v3.8.0",
-        "phpunit/phpunit": "^9.5"
+        "roave/security-advisories": "dev-latest"
     },
-    "extra": {},
+    "config": {
+        "platform-check": false,
+        "platform": {
+            "php": "8.0.2"
+        },
+        "sort-packages": true
+    },
     "scripts": {
-        "phpunit": "phpunit -c .phpunit.xml",
-        "php-cs-fixer": "php-cs-fixer fix --config .php-cs-fixer.php",
-        "test": "@phpunit",
-        "format": "@php-cs-fixer"
+        "phpunit": "tools/phpunit",
+        "php-cs-fixer": "tools/php-cs-fixer",
+        "test": "@phpunit -c phpunit.xml",
+        "format": "@php-cs-fixer fix --config=.php-cs-fixer.php"
     },
     "scripts-descriptions": {
         "test": "Runs phpunit with .phpunit.xml",
