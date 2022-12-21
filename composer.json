@@ -28,7 +28,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Jascha030\\Hooks\\Tests\\": "tests"
+            "Jascha030\\Hooks\\": "tests"
         }
     },
     "minimum-stability": "dev",

@@ -1,9 +1,9 @@
 <?php
 
-namespace Jascha030\Hooks\Tests;
+declare(strict_types=1);
 
-use Jascha030\Hooks\Action;
-use Jascha030\Hooks\Filter;
+namespace Jascha030\Hooks;
+
 use PHPUnit\Framework\TestCase;
 
 /**

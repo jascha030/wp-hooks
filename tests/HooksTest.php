@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Jascha030\Hooks\Tests;
+namespace Jascha030\Hooks;
 
-use Jascha030\Hooks\Action;
 use PHPUnit\Framework\TestCase;
 
 /**
