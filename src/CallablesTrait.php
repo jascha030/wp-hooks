@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Jascha030\Hooks;
 
+use Closure;
+
 /**
  * @internal
  */
@@ -26,14 +28,14 @@ trait CallablesTrait
      */
     public static function add(
         string $tag,
-        callable|\Closure $callable,
+        callable|Closure $callable,
         int $prio = 10,
         int $acceptedArgs = 1
     ): void {
         (new static())->callback($tag, $callable, $prio, $acceptedArgs);
     }
 
-    private function callback(string $tag, callable|\Closure $callable, int $prio = 10, int $acceptedArgs = 1): void
+    private function callback(string $tag, callable|Closure $callable, int $prio = 10, int $acceptedArgs = 1): void
     {
         $closure = $this->getCallable();
 
@@ -49,11 +51,11 @@ trait CallablesTrait
         return $this->assertClosure($this->getMethod());
     }
 
-    private function getProxyCallable(): \Closure
+    private function getProxyCallable(): Closure
     {
         return static function (
             string $tag,
-            callable|\Closure $callable,
+            callable|Closure $callable,
             int $prio = 10,
             int $acceptedArgs = 1
         ): void {

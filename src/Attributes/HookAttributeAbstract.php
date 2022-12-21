@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Jascha030\Hooks\Attributes;
 
 use Attribute;
+use Closure;
 
 #[Attribute(Attribute::TARGET_METHOD | Attribute::IS_REPEATABLE)]
 abstract class HookAttributeAbstract
@@ -15,7 +16,7 @@ abstract class HookAttributeAbstract
     ) {
     }
 
-    abstract public function add(callable|\Closure $callable, int $acceptedArgs): void;
+    abstract public function add(callable|Closure $callable, int $acceptedArgs): void;
 
     public function getPrio(): int
     {

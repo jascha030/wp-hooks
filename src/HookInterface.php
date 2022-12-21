@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Jascha030\Hooks;
 
+use Closure;
+
 interface HookInterface
 {
     public static function add(
         string $tag,
-        callable|\Closure $callable,
+        callable|Closure $callable,
         int $prio = 10,
         int $acceptedArgs = 1
     ): void;
