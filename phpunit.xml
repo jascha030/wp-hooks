@@ -3,15 +3,20 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
     bootstrap="vendor/autoload.php"
+    backupGlobals="false"
     cacheResult="false"
     colors="true"
     verbose="true"
     testdox="true"
-    cacheResultFile=".cache/phpunit.result.cache"
+    cacheResultFile=".var/cache/phpunit/phpunit.result.cache"
 >
-    <coverage processUncoveredFiles="true" cacheDirectory=".cache">
+<coverage 
+    processUncoveredFiles="true" 
+    cacheDirectory=".var/cache/phpunit"
+>
         <include>
             <directory suffix=".php">src</directory>
+            <!-- <directory suffix=".php">app/public/wp-content/themes/socialbrothers</directory> -->
         </include>
         <report>
             <clover outputFile=".cache/cov.xml"/>
@@ -19,8 +24,8 @@
         </report>
     </coverage>
     <testsuite name="main">
-        <file>tests/HooksFallbackTest.php</file>
-        <file>tests/HooksTest.php</file>
+        <directory>tests</directory>
+        <!-- <directory>app/public/tests</directory> -->
     </testsuite>
     <logging/>
 </phpunit>
