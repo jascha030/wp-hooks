@@ -6,7 +6,7 @@ namespace Jascha030\Hooks\Attributes;
 
 use Attribute;
 use Closure;
-use Jascha030\Hooks\AssertClosureTrait;
+use Jascha030\Hooks\WordPress\AssertClosureTrait;
 
 #[Attribute(Attribute::TARGET_METHOD | Attribute::IS_REPEATABLE)]
 final class Action extends HookAttributeAbstract
@@ -15,7 +15,7 @@ final class Action extends HookAttributeAbstract
 
     public function add(callable|Closure $callable, int $acceptedArgs): void
     {
-        \Jascha030\Hooks\Action::add(
+        \Jascha030\Hooks\WordPress\Action::add(
             $this->getTag(),
             $this->assertClosure($callable),
             $this->getPrio(),

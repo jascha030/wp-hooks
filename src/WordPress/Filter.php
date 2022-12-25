@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Jascha030\Hooks;
+namespace Jascha030\Hooks\WordPress;
 
 final class Filter implements HookInterface
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Jascha030\Hooks;
+namespace Jascha030\Hooks\WordPress;
 
 use Closure;
 
@@ -42,7 +42,7 @@ trait CallablesTrait
         $closure($tag, $callable, $prio, $acceptedArgs);
     }
 
-    private function getCallable(): callable
+    private function getCallable(): Closure
     {
         if (! function_exists($this->getMethod())) {
             return $this->getProxyCallable();
