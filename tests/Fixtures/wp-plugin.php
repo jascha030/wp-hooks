@@ -3,9 +3,8 @@
 declare(strict_types=1);
 
 /**
- * Test Plugin
+ * Test Plugin.
  *
- * @package SocialBrothers
  * @version 0.0.1
  *
  * @author  Social Brothers <backend@socialbrothers.nl>

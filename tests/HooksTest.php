@@ -6,12 +6,10 @@ declare(strict_types=1);
 
 namespace Jascha030\Hooks;
 
-use Jascha030\Hooks\WordPress\Action;
 use Jascha030\Hooks\WordPress\Filter;
 use WP_Mock;
 use WP_Mock\Tools\TestCase;
 use function apply_filters;
-use function do_action;
 use function PHPUnit\Framework\assertEquals;
 
 /**
@@ -37,12 +35,12 @@ final class HooksTest extends TestCase
     public function testAdd(): void
     {
         WP_Mock::onFilter('test')
-               ->with('test input')
-               ->reply(self::$expected);
+            ->with('test input')
+            ->reply(self::$expected);
 
         Filter::add(
             'test',
-            static fn(string $input): string => $input . ' test reply',
+            static fn (string $input): string => $input . ' test reply',
             10,
             0
         );
